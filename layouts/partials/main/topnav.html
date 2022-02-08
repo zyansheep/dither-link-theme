@@ -1,8 +1,12 @@
 <div class="topnav">
+	{{ $currentPage := . }}
 	<h1>Dither</h1>
-	<a href="/" class="active">About</a>
-	<a href="/docs">Ideas</a>
-	<a href="/inspiration">Inspiration</a>
-	<a href="https://github.com/libdither">Git</a>
+	{{ range .Site.Menus.main }}
+	{{ $has := ($currentPage.HasMenuCurrent "main" . ) }}
+	{{ $is := ($currentPage.IsMenuCurrent "main" . ) }}
+	<a href="{{ .URL }}" title="{{ .Title }}" class="{{if or $is $has }}active{{end}}">
+		{{- .Name -}}
+	</a>
+	{{ end }}
 	<p>Mission: Decentralize the Internet</p>
 </div>
