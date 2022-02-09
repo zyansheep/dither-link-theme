@@ -1,16 +1,19 @@
 @import "defaults";
 @import "variables";
+@import "themes/{{ default "light" .Site.Params.BookTheme }}";
+
+@import "normalize";
+@import "utils";
 
 @import "markdown";
+@import "main";
 
 body {
 	margin: 40px auto;
 	max-width: 650px;
 	line-height: 1.6;
 	font-size: 18px;
-	color: rgb(68, 68, 68);
 	padding: 0px 10px;
-	background-color: #EEEEEE;
 }
 
 #warning {
@@ -34,13 +37,10 @@ body {
 		margin: auto;
 		display: inline-block;
 	}
-}
-/* Change the color of links on hover */
-.topnav a:hover {
-	//color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-	color: black;
+	a:hover {
+		color: black;
+	}
+	a.active {
+		color: black;
+	}
 }
